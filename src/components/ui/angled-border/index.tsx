@@ -1,24 +1,26 @@
 import { cn } from '@/utils'
-import { FC, PropsWithChildren } from 'react'
-
-type AngledBorderProps = PropsWithChildren<{
-	additionalBlockStyles?: string
-}>
+import React, { FC } from 'react'
+import { AngledBorderProps } from './side.types'
+import { defaultSides } from './sides'
 
 const AngledBorder: FC<AngledBorderProps> = ({
 	children,
-	additionalBlockStyles
+	additionalBlockStyles,
+	displayedSides = ['top-right', 'top-left', 'bottom-right', 'bottom-left'],
+	additionalClassnames
 }) => {
 	return (
 		<div className={cn('relative', additionalBlockStyles)}>
-			<div className='absolute w-[2px] h-3 top-0 right-0 bg-white' />
-			<div className='absolute w-3 h-[2px] top-0 right-0 bg-white' />
-			<div className='absolute w-[2px] h-3 bottom-0 right-0 bg-white' />
-			<div className='absolute w-3 h-[2px] bottom-0 right-0 bg-white' />
-			<div className='absolute w-[2px] h-3 top-0 left-0 bg-white' />
-			<div className='absolute w-3 h-[2px] top-0 left-0 bg-white' />
-			<div className='absolute w-[2px] h-3 bottom-0 left-0 bg-white' />
-			<div className='absolute w-3 h-[2px] bottom-0 left-0 bg-white' />
+			{displayedSides.map((side, idx) => {
+				const [firstClassname, secondClassname] = defaultSides[side]
+
+				return (
+					<React.Fragment key={idx}>
+						<div className={cn(firstClassname, additionalClassnames)} />
+						<div className={cn(secondClassname, additionalClassnames)} />
+					</React.Fragment>
+				)
+			})}
 			{children}
 		</div>
 	)
