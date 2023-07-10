@@ -6,9 +6,9 @@ import StartJourney from './components/start-journey'
 
 const Home: FC = () => {
 	return (
-		<AbsoluteInset>
+		<AbsoluteInset additionalClassnames='z-10'>
 			<Container additionalStyles='h-full'>
-				<div className='flex justify-between items-center h-full '>
+				<div className='flex flex-col space-y-16 md:space-y-0 md:flex-row justify-center md:justify-between items-center h-full '>
 					<StartJourney />
 					<Benefits />
 				</div>

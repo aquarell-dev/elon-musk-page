@@ -1,7 +1,6 @@
 .button {
 	position: relative;
 	display: block;
-	background-color: #16151d;
 }
 
 .button:before {
@@ -15,7 +14,7 @@
 	background: linear-gradient(
 		12deg,
 		rgba(3, 1, 80, 1) 9%,
-		rgb(62, 62, 105) 53%,
+		rgba(86, 86, 157, 1) 53%,
 		rgba(3, 1, 80, 1) 100%
 	);
 }

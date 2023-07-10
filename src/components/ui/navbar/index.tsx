@@ -1,42 +1,25 @@
 import Logo from '@/assets/images/logo.png'
 import Container from '@/components/ui/container'
 import Image from 'next/image'
-import Link from 'next/link'
 import { FC } from 'react'
 import AngledBorder from '../angled-border'
-
-export const links: { link: string; id: number; href: string }[] = [
-	{ id: 1, link: 'Главная', href: '/' },
-	{ id: 2, link: 'Технология', href: '/technologies' },
-	{ id: 3, link: 'График Полетов', href: '/flight-schedule' },
-	{ id: 4, link: 'Гарантии', href: '/guarantees' },
-	{ id: 5, link: 'О Компании', href: '/about' },
-	{ id: 6, link: 'Контакты', href: '/contacts' }
-]
+import SidebarButton from '../sidebar-button'
+import Links from './links'
 
 const Navbar: FC = () => {
 	return (
-		<div className='border-b border-[#878282] bg-[#0a0500] bg-opacity-20'>
+		<div className='border-b border-[#878282] bg-[#0a0500] bg-opacity-20 relative z-20 overflow-hidden'>
 			<Container paddingContainer>
 				<div className='flex justify-between items-center'>
 					<AngledBorder>
 						<Image
-							className='pt-5 pb-7 px-8 border border-[#878282]'
+							className='pt-2 pb-4 md:pt-5 md:pb-7 px-4 md:px-8 border border-[#878282] w-[200px] lg:w-full'
 							src={Logo}
 							alt='SpaceX'
 						/>
 					</AngledBorder>
-					<ul className='p-0 m-0 overflow-hidden list-none flex space-x-4'>
-						{links.map(link => (
-							<li key={link.id}>
-								<Link href={link.href}>
-									<p className='transition duration-300 ease-in-out hover:text-slate-300 cursor-pointer hover:underline underline-slate-300'>
-										{link.link}
-									</p>
-								</Link>
-							</li>
-						))}
-					</ul>
+					<Links />
+					<SidebarButton size={30} />
 				</div>
 			</Container>
 		</div>

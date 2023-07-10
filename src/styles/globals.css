@@ -8,8 +8,19 @@ body {
 	min-height: 100vh;
 	box-sizing: border-box;
 
-	background: url('../assets/images/background.png') center no-repeat;
-	background-size: cover;
-
 	color: white;
+}
+
+@media screen and (min-width: 768px) {
+	body {
+		background: url('../assets/images/background.png') center no-repeat;
+		background-size: cover;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		background: url('../assets/images/small-background.png') center no-repeat;
+		background-size: cover;
+	}
 }
