@@ -1,0 +1,21 @@
+.button {
+	position: relative;
+	display: block;
+	background-color: #16151d;
+}
+
+.button:before {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	bottom: -1px;
+	right: -1px;
+	z-index: -1;
+	background: linear-gradient(
+		12deg,
+		rgba(3, 1, 80, 1) 9%,
+		rgb(62, 62, 105) 53%,
+		rgba(3, 1, 80, 1) 100%
+	);
+}
