@@ -18,7 +18,7 @@ const Navbar: FC = () => {
 							alt='SpaceX'
 						/>
 					</AngledBorder>
-					<Links />
+					<Links horizontal />
 					<SidebarButton size={30} />
 				</div>
 			</Container>

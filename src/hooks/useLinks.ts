@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 
 export type Link = { link: string; id: number; href: string }
 
-// export const links: [] = [
-
 const f: Promise<Link[]> = new Promise((resolve, reject) => {
 	setTimeout(() => {
 		resolve([
