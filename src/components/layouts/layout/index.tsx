@@ -1,4 +1,3 @@
-import Container from '@/components/ui/container'
 import Navbar from '@/components/ui/navbar'
 import { Montserrat } from 'next/font/google'
 import { FC, PropsWithChildren } from 'react'
@@ -9,7 +8,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<main style={montserrat.style}>
 			<Navbar />
-			<Container>{children}</Container>
+			{children}
 		</main>
 	)
 }

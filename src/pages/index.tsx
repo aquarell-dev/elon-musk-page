@@ -1,7 +1,8 @@
-import { Montserrat } from 'next/font/google'
+import { default as HomeScreen } from '@/components/screens/home'
+import { NextPage } from 'next'
 
-const montserrat = Montserrat({ subsets: ['latin'] })
-
-export default function Home() {
-	return <main style={montserrat.style}></main>
+const Home: NextPage = () => {
+	return <HomeScreen />
 }
+
+export default Home
