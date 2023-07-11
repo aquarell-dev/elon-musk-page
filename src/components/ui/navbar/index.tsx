@@ -1,5 +1,7 @@
 import Logo from '@/assets/images/logo.png'
 import Container from '@/components/ui/container'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { cn } from '@/utils'
 import Image from 'next/image'
 import { FC } from 'react'
 import AngledBorder from '../angled-border'
@@ -7,8 +9,16 @@ import SidebarButton from '../sidebar-button'
 import Links from './links'
 
 const Navbar: FC = () => {
+	const { status } = useTypedSelector(state => state.links)
+
 	return (
-		<div className='border-b border-[#878282] bg-[#0a0500] bg-opacity-20 relative z-20 overflow-hidden'>
+		<div
+			className={cn(
+				'border-b border-[#878282] bg-[#0a0500] bg-opacity-20 relative z-20 overflow-hidden',
+				'transition duration-300 ease-in-out',
+				status === 'pending' || status === null ? '-translate-y-full' : ''
+			)}
+		>
 			<Container paddingContainer>
 				<div className='flex justify-between items-center'>
 					<AngledBorder>
