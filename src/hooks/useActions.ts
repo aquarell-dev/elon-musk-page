@@ -1,9 +1,11 @@
+import { benefitsActions } from '@/features/benefits/benefits.slice'
 import { sidebarActions } from '@/features/sidebar/sidebar.slice'
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
 const actions = {
-	...sidebarActions
+	...sidebarActions,
+	...benefitsActions
 }
 
 export const useActions = () => {
