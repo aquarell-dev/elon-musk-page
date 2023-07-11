@@ -1,11 +1,11 @@
 import { useActions } from '@/hooks/useActions'
-import useLinks from '@/hooks/useLinks'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { cn } from '@/utils'
 import Link from 'next/link'
 import { FC } from 'react'
 
 const Links: FC<{ horizontal?: boolean }> = ({ horizontal }) => {
-	const { links, loading } = useLinks()
+	const { links, status } = useTypedSelector(state => state.links)
 
 	const { closeSidebar } = useActions()
 
@@ -16,10 +16,10 @@ const Links: FC<{ horizontal?: boolean }> = ({ horizontal }) => {
 				horizontal ? 'hidden 2xl:flex space-x-4' : 'flex flex-col space-y-2'
 			)}
 		>
-			{!loading &&
+			{status !== 'pending' &&
 				links.map(link => (
 					<li key={link.id} onClick={() => closeSidebar()}>
-						<Link href={link.href}>
+						<Link href={link.href ?? '/'}>
 							<p
 								className={cn(
 									'transition duration-300 ease-in-out',
