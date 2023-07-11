@@ -22,7 +22,12 @@ const StartJourney: FC<HTMLAttributes<HTMLButtonElement>> = props => {
 					)}
 					{...rest}
 				>
-					Начать путешествие
+					<a
+						href='https://github.com/aquarell-dev/elon-musk-page'
+						target='_blank'
+					>
+						Начать путешествие
+					</a>
 				</button>
 			</AngledBorder>
 			<img src={Line.src} width={330} className='mt-[230px] hidden' />
